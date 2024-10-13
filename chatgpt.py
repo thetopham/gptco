@@ -1,3 +1,5 @@
+#outdated, see gptco.py
+
 import requests
 import openai
 import speech_recognition as sr
