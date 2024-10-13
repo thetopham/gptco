@@ -1,8 +1,8 @@
 # gptco
 
-# GPT-Co: Automated Company Simulation
+# GPT-Co: Automated Company (Work in Progress)
 
-**GPT-Co** is an automated company simulation that leverages OpenAI's GPT models to create interactive agents representing different roles within a company. Users can interact with these agents to simulate business processes, customer interactions, and internal communications.
+**GPT-Co** is an automated company that leverages OpenAI's GPT models to create interactive agents representing different roles within a company. Users can interact with these agents to simulate business processes, customer interactions, and internal communications.
 
 ## Table of Contents
 
@@ -60,7 +60,7 @@
 Run the main script to start the simulation:
 
 ```bash
-python gptco6.py
+python gptco.py
 ```
 
 - The simulation starts with the Sales Agent.
@@ -127,8 +127,6 @@ Agents have access to various tools/functions to perform tasks:
 
 **Known Issues**
 
-- **API Method Corrections Needed**: Some OpenAI API method calls need to be updated to the correct methods (e.g., `openai.Embedding.create` instead of `openai.embeddings.create`).
-- **Model Name Correction**: Ensure that the model names used (e.g., `"gpt-4o"`) are valid OpenAI model names like `"gpt-3.5-turbo"` or `"gpt-4"`.
 - **Function Return Types**: Functions should return strings to avoid API errors related to message content types.
 - **Infinite Loop Prevention**: Adjustments are needed to prevent agents from entering infinite loops when calling functions.
 - **Error Handling**: Improve error handling for API calls and function executions.
