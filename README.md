@@ -1,5 +1,5 @@
 
-# gpt-co - work in Progress
+# gpt-co - work in progress
 
 **gpt-co** is an automated company simulation that leverages OpenAI's GPT models to create interactive agents representing different roles within a company. Users can interact with these agents to simulate business processes, customer interactions, internal communications, and more. Each agent is a master of their craft, equipped with a specialized set of tools to efficiently achieve both user and organizational goals.
 
