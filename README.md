@@ -383,7 +383,7 @@ The agent will then enter the loop, performing the necessary steps until the tas
 
 ### Current Progress
 
-- **Core Functionality Implemented**: The foundational framework for agent interaction, memory management, and tool usage is fully operational.
+- **Core Functionality Implemented**: The foundational framework for agent interaction, memory management, and tool usage is in prototype/concept. Functionality has yet to be fully implemented.
 - **Agent Transfer Working**: Agents can transfer conversations to other agents based on user requests and task requirements.
 - **Advanced Memory and Reflection**: Agents can store short-term and long-term memories, perform self-reflection, and adjust behaviors to improve performance.
 - **Comprehensive Tool Execution**: Agents can execute a wide range of tools/functions tailored to their roles, ensuring effective task management and resolution.
