@@ -1,3 +1,4 @@
+
 services:
   postgres:
     image: pgvector/pgvector:pg16
@@ -27,7 +28,7 @@ services:
 
   mcp-gateway:
     image: docker/mcp-gateway:latest
-    env_file: ["../.env"]         # <— use repo-root .env
+    env_file: ["../.env"]   # repo-root .env
     volumes:
       - ../mcp/servers:/mcp/servers:ro
     ports: ["3001:3001"]
@@ -36,19 +37,18 @@ services:
 
   orchestrator:
     build: ../apps/orchestrator
-    env_file: ["../.env"]         # <— use repo-root .env
+    env_file: ["../.env"]   # repo-root .env
     environment:
       POLICY_TIERS_PATH: /app/configs/policy/autonomy_tiers.yaml
       REDLINES_PATH: /app/configs/policy/redlines.yaml
-    depends_on: [postgres, qdrant, redis]
-    ports: ["8000:8000"]
     volumes:
       - ../configs:/app/configs:ro
       - ../scripts:/app/scripts:ro
       - ../evals:/app/evals:ro
-      - ../configs:/app/configs:ro
+    ports: ["8000:8000"]
+    depends_on: [postgres, qdrant, redis]
 
   operator:
     build: ../apps/operator
-    env_file: ["../.env"]         # <— use repo-root .env
+    env_file: ["../.env"]   # repo-root .env
     depends_on: [orchestrator]
