@@ -7,17 +7,14 @@ servers:
       - type: bind
         source: /mnt/data
         target: /data
-
   - name: web
     type: docker
     image: ghcr.io/modelcontextprotocol/servers/web:latest
-
   - name: github
     type: docker
     image: ghcr.io/modelcontextprotocol/servers/github:latest
     env:
       GITHUB_TOKEN: "${GITHUB_TOKEN}"
-
   - name: postgres
     type: docker
     image: ghcr.io/modelcontextprotocol/servers/postgres:latest

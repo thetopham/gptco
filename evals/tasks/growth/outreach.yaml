@@ -1,0 +1,9 @@
+id: growth_outreach_sequence
+tier: A1
+inputs:
+  - persona: "VP Marketing, PLG SaaS"
+    context: "Prefers async demo"
+checks:
+  - contains: ["CTA","value","calendar"]
+  - max_len: 180
+pass_threshold: 0.9
