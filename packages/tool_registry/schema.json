@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "name",
+    "version",
+    "auth",
+    "input_schema",
+    "output_schema",
+    "risk"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "auth": {
+      "type": "string",
+      "enum": [
+        "none",
+        "api_key",
+        "oauth",
+        "service_account"
+      ]
+    },
+    "endpoint": {
+      "type": "string"
+    },
+    "input_schema": {
+      "type": "object"
+    },
+    "output_schema": {
+      "type": "object"
+    },
+    "cost_estimate_usd": {
+      "type": "number"
+    },
+    "risk": {
+      "type": "object",
+      "required": [
+        "data_sensitivity",
+        "irreversibility",
+        "blast_radius"
+      ],
+      "properties": {
+        "data_sensitivity": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "pii",
+            "phi"
+          ]
+        },
+        "irreversibility": {
+          "type": "string",
+          "enum": [
+            "reversible",
+            "hard_to_undo",
+            "irreversible"
+          ]
+        },
+        "blast_radius": {
+          "type": "string",
+          "enum": [
+            "self",
+            "team",
+            "org",
+            "external"
+          ]
+        }
+      }
+    }
+  }
+}

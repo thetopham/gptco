@@ -1,0 +1,47 @@
+version: "3.9"
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: gptco
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: gptco
+    ports: ["5432:5432"]
+
+  qdrant:
+    image: qdrant/qdrant:v1.12.3
+    ports: ["6333:6333"]
+
+  redis:
+    image: redis:7
+    ports: ["6379:6379"]
+
+  temporal:
+    image: temporalio/auto-setup:1.23
+    environment:
+      DB: postgresql
+      POSTGRES_USER: gptco
+      POSTGRES_PWD: password
+      POSTGRES_SEEDS: postgres
+    depends_on: [postgres]
+    ports: ["7233:7233"]
+
+  mcp-gateway:
+    image: ghcr.io/modelcontextprotocol/mcp-gateway:latest
+    env_file: [.env]
+    volumes:
+      - ../mcp/servers:/mcp/servers:ro
+    ports: ["3001:3001"]
+    command: ["--config", "/mcp/servers/mcp.config.yaml"]
+    depends_on: [postgres, qdrant]
+
+  orchestrator:
+    build: ../apps/orchestrator
+    env_file: [.env]
+    depends_on: [postgres, qdrant, redis]
+    ports: ["8000:8000"]
+
+  operator:
+    build: ../apps/operator
+    env_file: [.env]
+    depends_on: [orchestrator]

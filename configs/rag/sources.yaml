@@ -1,0 +1,5 @@
+sources:
+  - kind: folder
+    path: docs/wiki
+  - kind: url
+    url: https://example.com/handbook

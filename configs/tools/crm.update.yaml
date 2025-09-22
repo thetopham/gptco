@@ -1,0 +1,21 @@
+name: crm.update
+version: "1.0.0"
+description: "Update CRM fields."
+auth: oauth
+endpoint: "svc://pods/sales/tools/crm.update"
+input_schema:
+  type: object
+  required: [entity_id, updates]
+  properties:
+    entity_id: {type: string}
+    updates: {type: object}
+output_schema:
+  type: object
+  properties:
+    success: {type: boolean}
+    diff: {type: object}
+cost_estimate_usd: 0.001
+risk:
+  data_sensitivity: medium
+  irreversibility: hard_to_undo
+  blast_radius: team
