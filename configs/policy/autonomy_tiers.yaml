@@ -1,0 +1,24 @@
+A0:
+  description: "Read-only; analysis and summaries."
+  allow_tools: ["rag.search"]
+  auto_threshold: 0
+A1:
+  description: "Draft-only; no external side-effects."
+  allow_tools: ["rag.search","draft.email","draft.doc","ticket.create"]
+  auto_threshold: 1
+A2:
+  description: "Low-risk, reversible actions."
+  allow_tools: ["crm.update","calendar.schedule","ticket.update"]
+  auto_threshold: 2
+A3:
+  description: "Medium-risk with rollback."
+  allow_tools: ["deploy.staging","experiment.launch"]
+  auto_threshold: 3
+A4:
+  description: "High autonomy with strict red lines."
+  allow_tools: ["invoice.issue","vendor.po.create"]
+  auto_threshold: 4
+A5:
+  description: "Org-scale autonomy under board governance."
+  allow_tools: ["*"]
+  auto_threshold: 5

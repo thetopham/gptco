@@ -1,0 +1,5 @@
+redlines:
+  - action: "payment.execute"
+  - action: "contract.sign"
+  - data: "export_pii"
+  - website: "*.airdrop.*"
